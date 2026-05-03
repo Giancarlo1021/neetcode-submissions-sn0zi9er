@@ -1,0 +1,31 @@
+class Solution {
+    /**
+     * @param {string} s
+     * @return {boolean}
+     */
+    isPalindrome(s) {
+        let l = 0, r = s.length-1;
+        while (l < r) {
+            while (l < r && !this.isAlpha(s[l])) {
+                l++;
+            }
+
+            while (l < r && !this.isAlpha(s[r])) {
+                r--;
+            }
+            if (s[l].toLowerCase() != s[r].toLowerCase()) return false;
+            l++;
+            r--;
+        }
+        console.log('a' - 'c')
+        return true;
+    }
+
+    isAlpha(c) {
+        return (
+            'A' <= c && c <= 'Z' ||
+            'a' <= c && c <= 'z' ||
+            '0' <= c && c <= '9' 
+        )
+    }
+}
